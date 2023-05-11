@@ -10,16 +10,28 @@ Phanto-IDP is a VAE-based generative deep learning model, which aims to **precis
 
 ### Environment Setup
 
-```python
-numpy==1.19.5
-ConfigArgParse==1.2
-joblib==0.14.1
-torch==1.8.0
-```
+The following packages are required in this work.
+
+* numpy==1.19.5 
+* ConfigArgParse==1.2 
+* joblib==0.14.1 
+* torch==1.8.0
+* einops==0.4.1
+
+You may need the following two packages **of any reasonable version** for analysis and plotting.
+
+* matplotlib==3.3.4
+* mdtraj==1.9.7
 
 ### Generation with pre-trained model
 
+We provide three checkpoint files for RS1, PaaA2, α-synuclein seperately. You can use the three pre-trained models for direct IDP conformation generation.
 
+```shell
+python generate.py generate_trial --temp 0.1
+```
+
+By now, our model reaches a rather satisfying with real conformations as seeds for generation, but unconditional generation is still quite hard.
 
 ### User-defined training process
 
