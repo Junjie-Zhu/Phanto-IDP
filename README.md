@@ -10,7 +10,12 @@ Phanto-IDP is a VAE-based generative deep learning model, which aims to **precis
 
 ### Environment Setup
 
-
+```python
+numpy==1.19.5
+ConfigArgParse==1.2
+joblib==0.14.1
+torch==1.8.0
+```
 
 ### Generation with pre-trained model
 

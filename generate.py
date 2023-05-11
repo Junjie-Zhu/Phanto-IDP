@@ -1,17 +1,17 @@
-import sys, time, csv, os, random, math, argparse
-
-# os.environ['CUDA_VISIBLE_DEVICES'] = '0'
+import argparse
+import math
+import os
+import random
+import time
 
 import numpy as np
 import torch
-from tqdm import tqdm
-from collections import OrderedDict
-from arguments import buildParser
 
-from model import ProteinGCN
-from traj_dataset import ProteinDataset, splitDataset, collate_pool
-from utils import AverageMeter, Normalizer, Logger, count_parameters, randomSeed, clearCache
 import config as cfg
+from arguments import buildParser
+from model import PhantoIDP
+from traj_dataset import ProteinDataset, splitDataset, collate_pool
+from utils import count_parameters, randomSeed
 
 
 def main():
@@ -91,7 +91,7 @@ def main():
 
     # Use DataParallel for faster training
     print("Let's use", torch.cuda.device_count(), "GPUs and Data Parallel Model.")
-    model = ProteinGCN(**kwargs)
+    model = PhantoIDP(**kwargs)
 
     model = torch.nn.DataParallel(model)
     model.cuda()
