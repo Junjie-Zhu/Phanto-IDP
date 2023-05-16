@@ -114,7 +114,6 @@ class ProteinDataset(Dataset):
         protein_atom_init_file = os.path.join(self.pkl_dir, atom_init_filename)
         assert os.path.exists(protein_atom_init_file), '{} does not exist!'.format(protein_atom_init_file)
         self.ari = AtomCustomJSONInitializer(protein_atom_init_file)
-        self.gdf = GaussianDistance(dmin=0, dmax=16, step=8)
 
         all_pdb_files = [file for file in os.listdir(self.protein_dir)
                          if isfile(join(self.protein_dir, file)) and file.endswith('.pdb')]

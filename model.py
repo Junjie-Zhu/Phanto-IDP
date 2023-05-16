@@ -216,7 +216,7 @@ class PhantoIDP(nn.Module):
         self.fape = FAPEloss()((targets_rigid, self.targets[0]), (outputs_rigid, self.outputs[0].squeeze())) + \
                     FAPEloss()((targets_rigid, self.targets[1]), (outputs_rigid, self.outputs[1].squeeze())) + \
                     FAPEloss()((targets_rigid, self.targets[2]), (outputs_rigid, self.outputs[2].squeeze()))
-        self.loss = self.fape - self.kl_loss
+        self.loss = self.fape * weight[0] / 3 - self.kl_loss
 
         if not pred:
             self.optimizer.zero_grad()
