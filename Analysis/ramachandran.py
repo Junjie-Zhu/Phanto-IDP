@@ -5,23 +5,24 @@ import biotite.structure.io as strucio
 import matplotlib.pyplot as plt
 import numpy as np
 
-inpath = ''
+inpath = './optimed/'
 
 # Parse file
 phi, psi, omega = np.array([]), np.array([]), np.array([])
 for file in os.listdir(inpath):
-    atom_array = strucio.load_structure(file)
-    # Calculate backbone dihedral angles
-    # from one of the two identical chains in the asymmetric unit
-    ph, ps, omg = struc.dihedral_backbone(atom_array)
+    if file.startswith('predicted'):
+        atom_array = strucio.load_structure(file)
+        # Calculate backbone dihedral angles
+        # from one of the two identical chains in the asymmetric unit
+        ph, ps, omg = struc.dihedral_backbone(atom_array)
 
-    # Remove invalid values (NaN) at first and last position
-    ph = ph[1:-1]
-    ps = ps[1:-1]
+        # Remove invalid values (NaN) at first and last position
+        ph = ph[1:-1]
+        ps = ps[1:-1]
 
-    phi = np.append(phi, ph)
-    psi = np.append(psi, ps)
-    omega = np.append(omega, omg)
+        phi = np.append(phi, ph)
+        psi = np.append(psi, ps)
+        omega = np.append(omega, omg)
 
     # A threshold that only 2W phi-psis are accepted
     if len(phi) >= 20000:
