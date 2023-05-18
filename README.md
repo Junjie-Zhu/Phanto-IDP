@@ -18,10 +18,10 @@ The following packages are required in this work.
 * torch==1.8.0
 * einops==0.4.1
 
-You may need the following two packages **of any reasonable version** for analysis and plotting.
+You may need the following two packages for analysis and plotting.
 
 * matplotlib==3.3.4
-* mdtraj==1.9.7
+* biotite==0.37.0
 
 ### Generation with pre-trained model
 

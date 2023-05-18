@@ -26,7 +26,7 @@ for file in os.listdir(inpath):
     # A threshold that only 2W phi-psis are accepted
     if len(phi) >= 20000:
         break
-        
+
 # Conversion from radians into degree
 phi *= 180 / np.pi
 psi *= 180 / np.pi
