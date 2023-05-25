@@ -4,6 +4,7 @@ from biotite.structure.residues import get_residues
 from biotite.structure import filter_backbone
 from biotite.structure import get_chains
 from biotite.sequence import ProteinSequence
+import biotite.structure.annotate_sse as sse
 import biotite.structure.io as strucio
 import biotite.structure as struc
 import numpy as np
@@ -135,6 +136,11 @@ def extract_plddt(protein,chain_id=None):
     plddt = np.array([i.b_factor for i in atom_array])
 
     return plddt, np.mean(plddt)
+
+def secondary_structure(protein):
+    if isinstance(protein,"str"):
+        protein = strucio.load_structure(protein,model=1)
+    return sse(protein)
 
 def rmsd(reference,target):
     reference = strucio.load_structure(reference,model=1)
