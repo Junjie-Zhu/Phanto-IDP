@@ -38,8 +38,11 @@ By now, our model reaches a rather satisfying with real conformations as seeds f
 For training model on your own trajectories, you have to first process the target trajectory into corresponding graph representation ensembles. This process is done with [mylddt](https://github.com/gjoni/mylddt) toolset, which accept one conformation at a time.
 
 ```shell
+./traj_process.sh
 python pdb_parse.py
 ```
+
+You may have to check the path informations in both fils to ensure that the scripts do extract trajectory features.
 
 Then you can train the model with preset arguments in `arguments.py`, or adjust the parameters in command line as followed:
 
