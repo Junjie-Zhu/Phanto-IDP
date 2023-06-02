@@ -41,7 +41,7 @@ For training model on your own trajectories, you have to first process the targe
 python pdb_parse.py
 ```
 
-Then you can train the model with preset arguments in `arguments.py`, or adjust the parameters in command line as followed/
+Then you can train the model with preset arguments in `arguments.py`, or adjust the parameters in command line as followed:
 
 ```shell
 python main.py trial_run --epochs 400 --batch_size 32  
