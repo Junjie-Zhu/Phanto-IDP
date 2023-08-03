@@ -48,9 +48,9 @@ def main():
     if test_size == 0:
         print('No protein directory given for testing!! Please recheck the split ratios, ignore if this is intended.')
 
-    test_dirs = all_dirs[:test_size]
+    test_dirs = all_dirs[:test_size][0]
     train_dirs = all_dirs[test_size:test_size + train_size]
-    val_dirs = all_dirs[test_size + train_size:test_size + train_size + val_size]
+    val_dirs = all_dirs[test_size + train_size:test_size + train_size + val_size][0]
     print('Testing on {} protein directories:'.format(len(test_dirs)))
 
     dataset = ProteinDataset(args.pkl_dir, args.protein_dir, args.atom_init, random_seed=args.seed)
